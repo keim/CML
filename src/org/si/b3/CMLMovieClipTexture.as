@@ -119,15 +119,19 @@ package org.si.b3 {
         public function clone() : CMLMovieClipTexture 
         {
             var newTexture:CMLMovieClipTexture = new CMLMovieClipTexture(bitmapData, rect.x, rect.y, rect.width, rect.height),
-                i:int, imax:int = animationPattern.length;
+                i:int, imax:int = animationCount;
             newTexture.cutoutBitmapData = cutoutBitmapData;
             newTexture.alphaMap = alphaMap;
-            newTexture.animationPattern = new Vector.<CMLMovieClipTexture>(imax, true);
-            newTexture.animationPattern[0] = newTexture;
-            for (i=1; i<imax; i++) {
-                newTexture.animationPattern[i] = animationPattern[i].clone();
+            newTexture.center.x = center.x;
+            newTexture.center.y = center.y;
+            if(imax) {
+                newTexture.animationPattern = new Vector.<CMLMovieClipTexture>(imax, true);
+                newTexture.animationPattern[0] = newTexture;
+                for (i=1; i<imax; i++) {
+                    newTexture.animationPattern[i] = animationPattern[i].clone();
+                }
             }
-            return this;
+            return newTexture;
         }
         
         
