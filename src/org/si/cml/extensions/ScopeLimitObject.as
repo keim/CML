@@ -174,7 +174,10 @@ package org.si.cml.extensions {
         
     // override
     //----------------------------------------
-        /** @inheritDoc */
+        /**
+         * Callback function from CMLObject.update(). This function destroys objects that have escaped from scope. It is called after updating position.
+         * Override this to update own parameters, and remember to call super.onUpdate() or handle scope escape yourself.
+         */
         override public function onUpdate() : void
         {
             // basic operation to check escaping
