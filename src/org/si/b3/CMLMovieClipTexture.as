@@ -19,8 +19,6 @@ package org.si.b3 {
         public var rect:Rectangle;
         /** texture center */
         public var center:Point;
-        /** texture anchor point */
-        public var anchor:Point;
         /** cutout bitmap data */
         public var cutoutBitmapData:BitmapData = null;
         /** alpha map */
@@ -82,7 +80,6 @@ package org.si.b3 {
             this.bitmapData = bitmapData;
             this.rect = new Rectangle(texX, texY, texWidth, texHeight);
             this.center = new Point(texWidth * 0.5, texHeight * 0.5);
-            this.anchor = new Point(center.x, center.y);
             this.drawable = drawable;
             this.alphaMap = null;
             if (animationCount > 0) {
